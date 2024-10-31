@@ -15,4 +15,4 @@ const tercerosSchema = new mongoose.schema(
     }
 )
 
-export default tercerosSchema
+export default tercerosSchema               
