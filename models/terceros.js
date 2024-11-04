@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const tercerosSchema = new mongoose.schema(
+const tercerosSchema = new mongoose.Schema(
     {
         nombre: { type: String, required: true },
         identificacion: { type: String, required: true, unique: true },
