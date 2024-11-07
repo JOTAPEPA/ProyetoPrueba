@@ -18,7 +18,7 @@ const movimientosSchema = new mongoose.Schema({
     valor:{ type: Number, required: true },
     iva:{ type: Number, required: true },
     total:{ type: Number, required: true },
-    estado: { type: Number, default: 1 }, //1 activo 0 inactivo
+    estado: { type: Number, default: 1 }, //1 aprovado 0 anulado
 
 })
 

@@ -1,4 +1,4 @@
-import Tercero from '../models/terceros'
+import Tercero from '../models/terceros.js'
 
 const httpTerceros = {
     getListarTerceros: async (req, res) => {
@@ -65,6 +65,7 @@ const httpTerceros = {
         }
 
     },
+
 }
 
 export default httpTerceros

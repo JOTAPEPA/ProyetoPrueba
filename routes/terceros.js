@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import httpTerceros from '../controllers/terceros'
+import httpTerceros from '../controllers/terceros.js'
 
 const router = Router()
 
