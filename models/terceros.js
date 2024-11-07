@@ -7,7 +7,8 @@ const tercerosSchema = new mongoose.Schema(
         direccion: { type: String },
         telefono: { type: String, required: true },
         email: { type: String, required: true, unique: true },
-        tipo: { type: String, required: true }, //0 cliente, 1 proveedor//
+        tipo: { type: String, required: true, default: 0 }, //0 cliente, 1 proveedor//
+        estado: { type: Number, default: 1 }, //1 activo 0 inactivo
 
     },
     {
