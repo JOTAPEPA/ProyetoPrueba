@@ -21,3 +21,5 @@ const movimientosSchema = new mongoose.Schema({
     estado: { type: Number, default: 1 }, //1 activo 0 inactivo
 
 })
+
+export default mongoose.model('Movimiento', movimientosSchema)

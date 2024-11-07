@@ -10,4 +10,4 @@ const articuloSchema = new mongoose.Schema({
     timestamps: true,
 })
 
-export default articuloSchema
+export default mongoose.model('Articulo', articuloSchema)
