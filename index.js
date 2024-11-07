@@ -7,9 +7,9 @@ import httpMovimiento from './routes/movimiento.js'
 
 const app = express();
 app.use(express.json());
-app.use("/terceros", httpTerceros);
-app.use("/movimiento", httpMovimiento);
-app.use("/articulos", httpArticulos);
+app.use("/api/terceros", httpTerceros);
+app.use("/api/movimiento", httpMovimiento);
+app.use("/api/articulos", httpArticulos);
 
 app.listen(process.env.PORT,()=>{
     console.log(`Servidor escuchando en el puerto ${process.env.PORT}`);
