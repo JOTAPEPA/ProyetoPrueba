@@ -16,4 +16,4 @@ const tercerosSchema = new mongoose.Schema(
     }
 )
 
-export default mongoose.model('Tercero', tercerosSchema)
+export default mongoose.model('Tercero', tercerosSchema)              
