@@ -15,8 +15,4 @@ const tercerosSchema = new mongoose.Schema(
     }
 )
 
-<<<<<<< HEAD
-export default tercerosSchema               
-=======
-export default mongoose.model('Tercero', tercerosSchema)
->>>>>>> 2b36a74a68f0f67e5ee79b5689382e65e4610f98
+export default mongoose.model('Tercero', tercerosSchema)              
