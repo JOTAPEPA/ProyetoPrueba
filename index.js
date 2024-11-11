@@ -5,6 +5,8 @@ dotenv.config();
 import httpTerceros from './routes/terceros.js'
 import httpMovimiento from './routes/movimiento.js'
 
+
+
 const app = express();
 app.use(express.json());
 app.use("/api/terceros", httpTerceros);
