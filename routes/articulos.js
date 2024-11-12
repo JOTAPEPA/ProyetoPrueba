@@ -1,5 +1,4 @@
-
-import e, { Router } from 'express'
+import { Router } from 'express'
 import httpArticulos from '../controllers/articulos.js'
 
 const router = Router()
