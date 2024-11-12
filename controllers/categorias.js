@@ -91,3 +91,5 @@ const httpCategorias = {
 
     }
 }
+
+export default httpCategorias;
