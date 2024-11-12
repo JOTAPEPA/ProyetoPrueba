@@ -13,4 +13,3 @@ router.get('/inactivos', httpArticulos.getListarInactivos)
 router.put('/activar/:id', httpArticulos.putModificarActivo)
 router.put('/desactivar/:id', httpArticulos.putModificarInactivo)
 
-
