@@ -7,7 +7,7 @@ import { validarJWT } from '../middleware/validar-jwt.js'
 const router = Router()
 
 router.get('/',[
-   validarJWT, middlewareValidar
+   middlewareValidar
 ], httpTerceros.getListarTerceros)
 
 router.get('/:id',[
