@@ -1,5 +1,4 @@
-import { get } from 'mongoose';
-import categoria from '../models/categoria';
+import categoria from '../models/categoria.js';
 
 const httpCategorias = {
 
@@ -91,3 +90,5 @@ const httpCategorias = {
 
     }
 }
+
+export default httpCategorias;

@@ -4,6 +4,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 import httpTerceros from './routes/terceros.js'
 import httpMovimiento from './routes/movimiento.js'
+import httpArticulos from './routes/articulos.js'
+import httpCategorias from './routes/categorias.js'
 
 import cors from 'cors';
 
@@ -21,6 +23,7 @@ app.use(express.json());
 app.use("/api/terceros", httpTerceros);
 app.use("/api/movimiento", httpMovimiento);
 app.use("/api/articulos", httpArticulos);
+app.use("/api/categorias", httpCategorias);
 
 app.listen(process.env.PORT,()=>{
     console.log(`Servidor escuchando en el puerto ${process.env.PORT}`);
