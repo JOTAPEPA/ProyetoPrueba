@@ -11,16 +11,10 @@ import httpCategorias from './routes/categorias.js'
 
 const app = express();
 app.use(express.json());
-<<<<<<< HEAD
-app.use("/terceros", httpTerceros);
-app.use("/movimiento", httpMovimiento);
-app.use("/articulos", httpArticulos);
-app.use("categorias", httpCategorias);
-=======
 app.use("/api/terceros", httpTerceros);
 app.use("/api/movimiento", httpMovimiento);
 app.use("/api/articulos", httpArticulos);
->>>>>>> f4636ddb7aecd5feee6867f3eabd6fa3f4aa862b
+app.use("/api/categorias", httpCategorias);
 
 app.listen(process.env.PORT,()=>{
     console.log(`Servidor escuchando en el puerto ${process.env.PORT}`);
