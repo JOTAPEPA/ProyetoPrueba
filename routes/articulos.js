@@ -1,4 +1,5 @@
-import { Router } from 'express'
+
+import e, { Router } from 'express'
 import httpArticulos from '../controllers/articulos.js'
 
 const router = Router()
@@ -11,3 +12,5 @@ router.get('/activos', httpArticulos.getListarActivos)
 router.get('/inactivos', httpArticulos.getListarInactivos)
 router.put('/activar/:id', httpArticulos.putModificarActivo)
 router.put('/desactivar/:id', httpArticulos.putModificarInactivo)
+
+

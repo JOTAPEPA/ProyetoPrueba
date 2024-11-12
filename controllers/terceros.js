@@ -1,4 +1,5 @@
 import Tercero from '../models/terceros.js'
+import { generarJWT } from '../middleware/validar-jwt.js'
 
 const httpTerceros = {
     getListarTerceros: async (req, res) => {
@@ -64,6 +65,25 @@ const httpTerceros = {
             res.status(400).json({ error: 'Error al actualizar tercero' })
         }
 
+    },
+
+    putModificarActivo: async (req, res) => {
+        try {
+            const { id } = req.params
+            const terceroActivo = await Tercero.findByIdAndUpdate(id, { estado: 1 }, { new: true });
+            res.json(terceroActivo)
+        } catch (error) {
+            res.status(400).json({ error: 'Error al activar tercero' })
+        }
+    },
+    putModificarInactivo: async (req, res) => {
+        try {
+            const { id } = req.params
+            const terceroInactivo = await Tercero.findByIdAndUpdate(id, { estado: 0 }, { new: true });
+            res.json(terceroInactivo)
+        } catch (error) {
+            res.status(400).json({ error: 'Error al desactivar tercero' })
+        }
     },
 
 }
