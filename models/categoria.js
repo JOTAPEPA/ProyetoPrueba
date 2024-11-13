@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const categoriaSchema = new mongoose.Schema({
-    nombre: { type: String, required: true, maxlength: 50 },
+nombre: { type: String, required: true, maxlength: 50 },
     descripcion: { type: String, required:true},
     estado: { type: String, default: 1}, //1 activo 0 inactivo
 },{

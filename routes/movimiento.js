@@ -15,7 +15,7 @@ router.get('/',[
 router.get('/:id',[
     validarJWT,
     check("id", "Id no valido").isMongoId(),
-    check("id", "no existe ena base de datos").custom(helperMovimiento.validarId),
+    check("id", "no existe en la base de datos").custom(helperMovimiento.validarId),
     middlewareValidar
 ], httpMovimiento.getListarMovimientosPorId)
 
@@ -66,21 +66,21 @@ router.put('/:id',[
 router.put('/anulado/:id',[
     validarJWT,
     check("id", "Id no valido").isMongoId(),
-    check("id", "no existe ena base de datos").custom(helperMovimiento.validarId),
+    check("id", "no existe en la base de datos").custom(helperMovimiento.validarId),
     middlewareValidar
 ], httpMovimiento.putModificarAnulado)
 
 router.put('/aprobado/:id',[
     validarJWT,
     check("id", "Id no valido").isMongoId(),
-    check("id", "no existe ena base de datos").custom(helperMovimiento.validarId),
+    check("id", "no existe en la base de datos").custom(helperMovimiento.validarId),
     middlewareValidar
 ], httpMovimiento.putModificarAprobado)
 
 router.put('/devolucion/:id',[
     validarJWT,
     check("id", "Id no valido").isMongoId(),
-    check("id", "no existe ena base de datos").custom(helperMovimiento.validarId),
+    check("id", "no existe en la base de datos").custom(helperMovimiento.validarId),
     middlewareValidar
 ], httpMovimiento.putModificarDevolucion)
 
