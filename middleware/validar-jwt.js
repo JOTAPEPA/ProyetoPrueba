@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
-import Terceros from '../models/terceros.js'
+import usuarios from '../models/usuarios.js';
 
-const generarJWT = () => {
+const generarJWT = (id) => {
     return new Promise((resolve, reject) => {
         const payload = { id };
         jwt.sign(payload, process.env.JWT_SECRET, {
@@ -23,11 +23,11 @@ const validarJWT = async (req, res, next) => {
     }
     try {
         const { id } = jwt.verify(token, process.env.JWT_SECRET)
-        const Tercero = await Terceros.findById(id);
-        if (!Tercero) {
-            return res.status(401).json({ error: 'token no valido' });
+        const usuario = await usuarios.findById(id);
+        if (!usuario) {
+            return res.status(401).json({ error: 'token no valido: usuario no encontrado'});
         }
-        if (Tercero.estado === 0) {
+        if (usuario.estado === 0) {
             return res.status(401).json({ error: 'cuenta inactiva' });
         }
         next();

@@ -7,13 +7,14 @@ import { validarJWT } from '../middleware/validar-jwt.js'
 const router = Router()
 
 router.get('/',[
-   middlewareValidar
+   validarJWT, middlewareValidar
 ], httpTerceros.getListarTerceros)
 
 router.get('/:id',[
     validarJWT,
   check("id", "Id no valido").isMongoId(),
-  check("id", "no existe ena base de datos").custom(helperTercero.validarId)  
+  check("id", "no existe ena base de datos").custom(helperTercero.validarId),
+  middlewareValidar
 ], httpTerceros.getListarTercerosPorId)
 
 router.get('/activos',[
@@ -58,13 +59,15 @@ router.put('/:id',[
 router.put('/activo/:id',[
     validarJWT, 
     check("id", "Id no valido").isMongoId(),
-    check("id", "no existe ena base de datos").custom(helperTercero.validarId)  
+    check("id", "no existe ena base de datos").custom(helperTercero.validarId),
+    middlewareValidar 
 ], httpTerceros.putModificarActivo)
 
 router.put('/inactivo/:id',[
     validarJWT,
     check("id", "Id no valido").isMongoId(),
-    check("id", "no existe ena base de datos").custom(helperTercero.validarId)  
+    check("id", "no existe ena base de datos").custom(helperTercero.validarId),
+    middlewareValidar  
 ], httpTerceros.putModificarInactivo)
 
 export default router

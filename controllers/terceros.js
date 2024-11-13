@@ -1,5 +1,5 @@
 import Tercero from '../models/terceros.js'
-import { generarJWT } from '../middleware/validar-jwt.js'
+
 
 const httpTerceros = {
     getListarTerceros: async (req, res) => {
