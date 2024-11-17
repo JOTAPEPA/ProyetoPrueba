@@ -29,7 +29,7 @@ const httpArticulos = {
 
     getListarTodos: async (req, res) => {
         try {
-            const listarTodos = await articulo.find()
+            const listarTodos = await articulo.find().populate('categoria', 'nombre').exec();
             res.json(listarTodos)
         } catch (error) {
             res.status(400).json({ error: 'Error al obtener lista de articulos' })

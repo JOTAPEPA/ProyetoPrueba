@@ -6,9 +6,13 @@ import helperTercero from '../helpers/terceros.js'
 import { validarJWT } from '../middleware/validar-jwt.js'
 const router = Router()
 
-router.get('/',[
+router.get('/proveedores',[
    validarJWT, middlewareValidar
-], httpTerceros.getListarTerceros)
+], httpTerceros.getListarTercerosProveedores)
+
+router.get('/clientes',[
+    validarJWT, middlewareValidar
+ ], httpTerceros.getListarTercerosClientes)
 
 router.get('/:id',[
     validarJWT,

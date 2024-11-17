@@ -3,6 +3,7 @@ import httpUsuarios from '../controllers/usuarios.js'
 import middlewareValidar from '../middleware/validar_datos.js'
 import { check } from 'express-validator'
 import helperUsuario from '../helpers/usuarios.js'
+import { validarJWT } from '../middleware/validar-jwt.js'
 
 const router = Router()
 
@@ -17,12 +18,17 @@ router.post('/registro',[
     check("password", "La contraseña debe contener al menos una letra mayúscula").isLength({ min: 1 }),
     check("password", "La contraseña debe contener al menos una letra minúscula").isLength({ min: 1 }),
     middlewareValidar
-], httpUsuarios.registrarUsuario)
+], httpUsuarios.postRegistrarUsuario)
 
 router.post('/login',[
     check("email", "El email es obligatorio").notEmpty(),
     check("password", "La contraseña es obligatoria").notEmpty(),
     middlewareValidar
-], httpUsuarios.loginUsuario)
+], httpUsuarios.postLoginUruario)
+
+router.get('/usuarios',[
+    validarJWT,
+    middlewareValidar
+], httpUsuarios.getlistarUsuarios)
 
 export default router
