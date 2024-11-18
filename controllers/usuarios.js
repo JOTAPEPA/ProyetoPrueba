@@ -5,7 +5,7 @@ import bcrypt from 'bcryptjs';
 
 const httpUsuarios = {
 
-  registrarUsuario: async (req, res) => {
+  postRegistrarUsuario: async (req, res) => {
     try {
       const { nombre, email, password, } = req.body;
       const existinguser = await Usuario.findOne({ email });
@@ -27,7 +27,7 @@ const httpUsuarios = {
   },
 
   
-  loginUsuario: async (req, res) => {
+  postLoginUruario: async (req, res) => {
     try {
       const { email, password } = req.body;
       const usuario = await Usuario.findOne({ email });
@@ -45,6 +45,15 @@ const httpUsuarios = {
       res.status(200).json({ token, message: 'Inicio de sesión exitoso' });
     } catch (error) {
       res.status(400).json({ error: 'Error al iniciar sesión' });
+    }
+  },
+  getlistarUsuarios: async (req, res) => {
+    try {
+      const usuarios = await Usuario.find(); // Obtener todos los usuarios de la base de datos
+      res.status(200).json(usuarios); // Enviar los usuarios como respuesta
+    } catch (error) {
+      console.log(error);
+      res.status(400).json({ error: 'Error al obtener los usuarios' });
     }
   }
 };

@@ -2,9 +2,17 @@ import Tercero from '../models/terceros.js'
 
 
 const httpTerceros = {
-    getListarTerceros: async (req, res) => {
+    getListarTercerosProveedores: async (req, res) => {
         try {
-        const listaTerceros = await Tercero.find()
+        const listaTerceros = await Tercero.find({tipo:"1"})
+            res.json(listaTerceros)
+        } catch (error) {
+            res.status(400).json({ error: 'Error al obtener lista de terceros' })
+        }
+    },
+    getListarTercerosClientes: async (req, res) => {
+        try {
+        const listaTerceros = await Tercero.find({tipo:"0"})
             res.json(listaTerceros)
         } catch (error) {
             res.status(400).json({ error: 'Error al obtener lista de terceros' })
