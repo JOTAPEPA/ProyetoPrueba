@@ -33,7 +33,7 @@ router.get('/:id',[
     middleWareValidar
 ], httpCategorias.getListarXId)
 
-router.get('/activos',[
+router.get('/activos',[ 
     validarJWT,
     middleWareValidar
 ], httpCategorias.getListarActivos)
