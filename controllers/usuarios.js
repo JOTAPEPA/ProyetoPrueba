@@ -45,12 +45,13 @@ const httpUsuarios = {
       res.status(200).json({ token, message: 'Inicio de sesión exitoso' });
     } catch (error) {
       res.status(400).json({ error: 'Error al iniciar sesión' });
+      
     }
   },
   getlistarUsuarios: async (req, res) => {
     try {
-      const usuarios = await Usuario.find(); // Obtener todos los usuarios de la base de datos
-      res.status(200).json(usuarios); // Enviar los usuarios como respuesta
+      const usuarios = await Usuario.find(); 
+      res.status(200).json(usuarios); 
     } catch (error) {
       console.log(error);
       res.status(400).json({ error: 'Error al obtener los usuarios' });
