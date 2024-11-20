@@ -45,10 +45,7 @@ const httpUsuarios = {
       res.status(200).json({ token, message: 'Inicio de sesión exitoso' });
     } catch (error) {
       res.status(400).json({ error: 'Error al iniciar sesión' });
-<<<<<<< HEAD
       console.log(error);
-=======
->>>>>>> df7a5fb9027f6b79c79f27dbc057ee57ad691c15
       
     }
   },
