@@ -45,7 +45,7 @@ const httpUsuarios = {
       res.status(200).json({ token, message: 'Inicio de sesión exitoso' });
     } catch (error) {
       res.status(400).json({ error: 'Error al iniciar sesión' });
-
+      
     }
   },
   getlistarUsuarios: async (req, res) => {
