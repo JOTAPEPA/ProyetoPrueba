@@ -1,7 +1,7 @@
 import Terceros from '../models/terceros.js'
 
 const helperTercero = {
-    validarIdentificación: async (identificacion, id) => {
+    validarIdentificacionPut: async (identificacion, id) => {
         console.log("cedula ",identificacion);
         console.log("id ",id);
         
@@ -11,7 +11,7 @@ const helperTercero = {
         }
         
     },
-    validarIdentificaciónPut: async (id) => {
+    validarIdentificacion: async (id) => {
         const existe = await Terceros.findOne({ identificacion: id })
         if (existe) {
            throw new Error('La identificación ya existe')

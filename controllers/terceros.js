@@ -65,8 +65,8 @@ const httpTerceros = {
     putModificarTerceros: async (req, res) => {
         try {
             const {id} = req.params;
-            const { nombre, identificacion, direccion, telefono, email, } = req.body;
-           let update = {nombre, identificacion, direccion, telefono, email,}
+            const { nombre, identificacion, direccion, telefono, email, estado } = req.body;
+           let update = {nombre, identificacion, direccion, telefono, email, estado}
            const terceroModificado = await Tercero.findByIdAndUpdate(id, update, { new: true });
            res.json(terceroModificado)
         } catch (error) {

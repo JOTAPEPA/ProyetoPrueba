@@ -16,7 +16,7 @@ const usuarioSchema = new mongoose.Schema({
         required: true
     },
     estado: {
-        type: String,
+        type: Number,
         default: 1 //1 activo 0 inactivo
     }
 },

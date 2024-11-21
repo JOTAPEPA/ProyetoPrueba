@@ -45,7 +45,7 @@ const httpUsuarios = {
       res.status(200).json({ token, message: 'Inicio de sesión exitoso' });
     } catch (error) {
       res.status(400).json({ error: 'Error al iniciar sesión' });
-      
+
     }
   },
   getlistarUsuarios: async (req, res) => {
@@ -56,7 +56,21 @@ const httpUsuarios = {
       console.log(error);
       res.status(400).json({ error: 'Error al obtener los usuarios' });
     }
-  }
+  },
+  putModificarUsuario: async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { nombre, email, password, estado } = req.body;
+      let update = { nombre, email, password, estado };
+      const usuarioModificado = await Usuario.findByIdAndUpdate(id, update, { new: true });
+      res.json(usuarioModificado)
+    } catch (error) {
+      res.status(400).json({ error: 'Error al actualizar usuario' })
+      console.log(error);
+    }
+  },
 };
+
+
 
 export default httpUsuarios;

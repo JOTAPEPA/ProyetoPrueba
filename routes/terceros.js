@@ -39,7 +39,7 @@ router.get('/:tipo',[
 router.post('/',[
     check("nombre", "El nombre es obligatorio").notEmpty(),
     check("identificacion", "El identificacion es obligatorio").notEmpty(),
-    check("identificacion", "El identificacion debe ser unico").custom(helperTercero.validarIdentificaciónPut),
+    check("identificacion", "El identificacion debe ser unico").custom(helperTercero.validarIdentificacion),
     check("direccion", "La direccion es obligatoria").notEmpty(),
     check("telefono", "El telefono es obligatorio").notEmpty(),
     check("email", "El email es obligatorio").notEmpty(),
@@ -51,7 +51,7 @@ router.post('/',[
 router.put('/:id',[
     validarJWT,
     check("nombre", "El nombre es obligatorio").optional().notEmpty(),
-    check("identificacion", "La identificación debe ser única").optional().custom(async (identificacion, {req}) => await helperTercero.validarIdentificación(identificacion, req.params.id)),
+    check("identificacion", "La identificación debe ser única").optional().custom(async (identificacion, {req}) => await helperTercero.validarIdentificacionPut(identificacion, req.params.id)),
     check("direccion", "La dirección es obligatoria").optional().notEmpty(),
     check("telefono", "El teléfono es obligatorio").optional().notEmpty(),
     check("email", "El email es obligatorio").optional().notEmpty(),
