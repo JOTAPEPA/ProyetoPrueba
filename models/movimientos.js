@@ -8,11 +8,12 @@ const movimientosSchema = new mongoose.Schema({
         {
             _id: {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: 'articulo',
+                ref: 'Articulo',
                 required: true
             },
+            precio: { type: Number, required: true },
             cantidad: { type: Number, required: true },
-            precio: { type: Number, required: true }
+          
         }
     ],
     valor:{ type: Number, required: true },

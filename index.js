@@ -23,7 +23,7 @@ app.use(cors(
 ));
 app.use(express.json());
 app.use("/api/terceros", httpTerceros);
-app.use("/api/movimiento", httpMovimiento);
+app.use("/api/movimientos", httpMovimiento);
 app.use("/api/articulos", httpArticulos);
 app.use("/api/categorias", httpCategorias);
 app.use("/api/", httpUsuarios);

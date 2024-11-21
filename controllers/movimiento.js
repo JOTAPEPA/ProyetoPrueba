@@ -1,12 +1,42 @@
 import Movimiento from '../models/movimientos.js'
 
 const httpMovimiento = {
-    getListarMovimientos: async (req, res) => {
+
+    getListarMovimientosCompras: async (req, res) => {
         try {
-            const listaMovimientos = await Movimiento.find()
+            const listaMovimientos = await Movimiento.find({ tipo: 1 })
             res.json(listaMovimientos)
         } catch (error) {
-            res.status(400).json({ error: 'Error al obtener lista de movimientos' })
+            res.status(400).json({ error: 'Error al obtener lista de movimientos de compra' })
+        }
+    },
+    getListarMovimientosVentas: async (req, res) => { 
+        try {
+    
+            const listaMovimientos = await Movimiento.find({ tipo: 2 })
+                .populate('articulos._id', 'nombre') 
+                .exec();
+            
+            res.json(listaMovimientos);
+        } catch (error) {
+            console.error(error);  
+            res.status(400).json({ error: 'Error al obtener lista de movimientos de venta' });
+        }
+    },
+    getListarDevolucionCompras: async (req, res) => {
+        try {
+            const listaMovimientos = await Movimiento.find({ tipo: 3 })
+            res.json(listaMovimientos)
+        } catch (error) {
+            res.status(400).json({ error: 'Error al obtener lista de Devoluciones de compra' })
+        }
+    },
+    getListarDevolucionVentas: async (req, res) => {
+        try {
+            const listaMovimientos = await Movimiento.find({ tipo: 4 })
+            res.json(listaMovimientos)
+        } catch (error) {
+            res.status(400).json({ error: 'Error al obtener lista de Devoluciones de venta' })
         }
     },
     getListarMovimientosPorId: async (req, res) => {

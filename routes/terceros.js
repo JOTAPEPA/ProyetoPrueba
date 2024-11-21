@@ -41,10 +41,11 @@ router.post('/',[
     check("identificacion", "El identificacion es obligatorio").notEmpty(),
     check("identificacion", "El identificacion debe ser unico").custom(helperTercero.validarIdentificacion),
     check("direccion", "La direccion es obligatoria").notEmpty(),
-    check("telefono", "El telefono es obligatorio").notEmpty(),
+    check("telefono", "El telefono es obligatorio").notEmpty(), 
+    check('telefono', 'El teléfono debe tener exactamente 10 dígitos').isLength({ min: 10, max: 10 }).withMessage('El teléfono debe tener exactamente 10 dígitos'),
+    check('telefono', 'El teléfono solo debe contener números').isNumeric().withMessage('El teléfono solo debe contener números'),
     check("email", "El email es obligatorio").notEmpty(),
     check("email", "El email debe ser unico").custom(helperTercero.validarEmail),
-    check("tipo", "El tipo es obligatorio").notEmpty(),
     middlewareValidar
     ], httpTerceros.postTerceros)
 

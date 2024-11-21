@@ -52,6 +52,8 @@ const httpTerceros = {
         }
     },
     postTerceros: async (req, res) => {
+        console.log(req.body);
+        
         try {
             const { nombre, identificacion, direccion, telefono, email, tipo } = req.body;
             const nuevo_Tercero = new Tercero({ nombre, identificacion, direccion, telefono, email, tipo });

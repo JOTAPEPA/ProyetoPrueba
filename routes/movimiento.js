@@ -7,10 +7,25 @@ import { validarJWT } from '../middleware/validar-jwt.js'
 
 const router = Router()
 
-router.get('/',[
+router.get('/ventas',[
     validarJWT,
     middlewareValidar
-], httpMovimiento.getListarMovimientos)
+], httpMovimiento.getListarMovimientosVentas)
+
+router.get('/compras',[
+    validarJWT,
+    middlewareValidar
+], httpMovimiento.getListarMovimientosCompras)
+
+router.get('/devoluciones-compras',[
+    validarJWT,
+    middlewareValidar
+], httpMovimiento.getListarDevolucionCompras)
+
+router.get('/devoluciones-ventas',[
+    validarJWT,
+    middlewareValidar
+],  httpMovimiento.getListarDevolucionVentas)
 
 router.get('/:id',[
     validarJWT,
