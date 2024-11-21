@@ -42,5 +42,5 @@ router.put('/usuarios/:id',[
 
     middlewareValidar
 ], httpUsuarios.putModificarUsuario)
-
+    
 export default router
