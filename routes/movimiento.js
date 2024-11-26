@@ -60,10 +60,9 @@ router.get('/totalvendido/:fechaInicio/:fechaFin',[
 ], httpMovimiento.getTotalvendido)
 
 router.post('/',[
-    check("tipo", "El tipo es obligatorio").notEmpty(),
+  
     check("numeroFactura", "El numero de factura es obligatorio").notEmpty(),
     check("numeroFactura", "El numero de factura debe ser único").custom(helperMovimiento.validarNumeroFactura),
-    check("fecha", "La fecha es obligatoria").notEmpty(),
     check("articulos", "Los articulos son obligatorios").notEmpty(),
     check("valor", "El valor es obligatorio").notEmpty(),
     check("iva", "El iva es obligatorio").notEmpty(),

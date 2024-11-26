@@ -14,7 +14,7 @@ const httpMovimiento = {
         try {
     
             const listaMovimientos = await Movimiento.find({ tipo: 2 })
-                .populate('articulos._id', 'nombre') 
+                .populate('articulos._id', 'nombre precio') 
                 .exec();
             
             res.json(listaMovimientos);

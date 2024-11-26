@@ -27,6 +27,7 @@ app.use("/api/movimientos", httpMovimiento);
 app.use("/api/articulos", httpArticulos);
 app.use("/api/categorias", httpCategorias);
 app.use("/api/", httpUsuarios);
+app.use(express.static('public'));
 
 
 app.listen(process.env.PORT,()=>{
