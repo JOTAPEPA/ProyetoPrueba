@@ -21,17 +21,17 @@ router.get('/:id',[
   middlewareValidar
 ], httpTerceros.getListarTercerosPorId)
 
-router.get('/activos',[
+router.get('/activo/:estado',[
     validarJWT,
     middlewareValidar
 ], httpTerceros.getListarActivos)
 
-router.get('/inactivos',[
+router.get('/inactivo/:estado',[
     validarJWT,
     middlewareValidar
 ], httpTerceros.getListarInactivos)
 
-router.get('/:tipo',[
+router.get('/tipo/:tipo',[
     validarJWT,
     middlewareValidar
 ], httpTerceros.getListarTipo)

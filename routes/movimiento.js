@@ -34,12 +34,12 @@ router.get('/:id',[
     middlewareValidar
 ], httpMovimiento.getListarMovimientosPorId)
 
-router.get('/aprobados',[
+router.get('/aprobados/:estado',[
     validarJWT,
     middlewareValidar
 ], httpMovimiento.getListarAprobados)
 
-router.get('/anulados',[
+router.get('/anulados/:estado',[
     validarJWT,
     middlewareValidar
 ], httpMovimiento.getListarAnulados)

@@ -30,6 +30,7 @@ const httpTerceros = {
         try {
             const listaTerceros = await Tercero.find({ estado: 1 })
             res.json(listaTerceros)
+            console.log(listaTerceros)
         } catch (error) {
             res.status(400).json({ error: 'Error al obtener lista de terceros activos' })
         }
