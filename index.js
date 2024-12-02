@@ -13,19 +13,11 @@ import cors from 'cors';
 
 
 const app = express();
-
-const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174'];
-
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true, // Si estás enviando cookies o encabezados personalizados
-}));
+    origin: 'https://inventariojpl.onrender.com', // Cambia esto por la URL de tu frontend
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos HTTP permitidos
+    credentials: true // Permite enviar cookies si es necesario
+  }));
 app.use(express.json());
 app.use("/api/terceros", httpTerceros);
 app.use("/api/movimientos", httpMovimiento);
