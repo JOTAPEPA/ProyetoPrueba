@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 const movimientosSchema = new mongoose.Schema({
     tipo: { type: Number, required: true, default: 1 }, //1.entrada 2.salida 3.devolucion de entrada 4.devolucion de salida
     numeroFactura:{ type: Number, required: true, unique: true },
+    fecha:{ type: Date, required: true },
    
     articulos: [
         {
