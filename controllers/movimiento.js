@@ -107,13 +107,14 @@ const httpMovimiento = {
 
     postMovimiento: async (req, res) => {
         try {
-            const { tipo, numeroFactura, fecha, articulos, valor, iva, total } = req.body;
-            const nuevo_Movimiento = new Movimiento({ tipo, numeroFactura, fecha, articulos, valor, iva, total });
+            const { tipo, numeroFactura, cliente, fecha, articulos, valor, iva, total } = req.body;
+            const nuevo_Movimiento = new Movimiento({ tipo, numeroFactura, cliente, fecha, articulos, valor, iva, total });
             await nuevo_Movimiento.save();
             res.json(nuevo_Movimiento);
         } catch (error) {
             res.status(400).json({ error: 'Error al crear nuevo movimiento' });
         }
+        console.log(nuevo_Movimiento)
     },
     putModificarMovimiento: async (req, res) => {
         try {
