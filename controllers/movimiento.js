@@ -155,7 +155,7 @@ const httpMovimiento = {
             const movimientoDevolucion = await Movimiento.findByIdAndUpdate(id, { tipo: 4 }, { new: true });
             res.json(movimientoDevolucion);
         } catch (error) {
-            res.status(400).json({ error: 'Error al devolver movimiento' });
+            res.status(400).json({ error: 'Error al devolver movimiento..' });
         }
     },
 
