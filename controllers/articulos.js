@@ -17,8 +17,8 @@ const httpArticulos = {
     putModificar: async (req, res) => {
         try {
             const { id } = req.params;
-            const { nombre, precio, stock, categoria, estado } = req.body;
-            let update = { nombre, precio, stock, categoria, estado }
+            const { nombre, precio, stock, categoria, estado, } = req.body;
+            let update = { nombre, precio, stock, categoria, estado, }
             const articuloModificado = await articulo.findByIdAndUpdate(id, update, { new: true });
             res.json(articuloModificado)
         } catch (error) {

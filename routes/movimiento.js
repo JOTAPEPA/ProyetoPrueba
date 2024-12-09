@@ -64,7 +64,7 @@ router.post('/',[
     check("numeroFactura", "El numero de factura es obligatorio").notEmpty(),
     check("numeroFactura", "El numero de factura debe ser único").custom(helperMovimiento.validarNumeroFactura),
     check("articulos", "Los articulos son obligatorios").notEmpty(),
-    check("valor", "El valor es obligatorio").notEmpty(),
+    check("subtotal", "El subtotal es obligatorio").notEmpty(),
     check("iva", "El iva es obligatorio").notEmpty(),
     check("total", "El total es obligatorio").notEmpty(),
     middlewareValidar

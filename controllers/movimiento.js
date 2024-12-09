@@ -14,8 +14,9 @@ const httpMovimiento = {
         try {
     
             const listaMovimientos = await Movimiento.find({ tipo: 2 })
-                .populate('articulos._id', 'nombre precio') 
+                .populate('articulos._id', 'nombre precio')
                 .exec();
+                console.log(listaMovimientos);
             
             res.json(listaMovimientos);
         } catch (error) {
@@ -107,20 +108,22 @@ const httpMovimiento = {
 
     postMovimiento: async (req, res) => {
         try {
-            const { tipo, numeroFactura, cliente, fecha, articulos, valor, iva, total } = req.body;
-            const nuevo_Movimiento = new Movimiento({ tipo, numeroFactura, cliente, fecha, articulos, valor, iva, total });
+            const { tipo, numeroFactura, cliente, fecha, articulos, subtotal, iva, total } = req.body;
+            const nuevo_Movimiento = new Movimiento({ tipo, numeroFactura, cliente, fecha, articulos, subtotal, iva, total });
             await nuevo_Movimiento.save();
             res.json(nuevo_Movimiento);
+            console.log(nuevo_Movimiento)
         } catch (error) {
             res.status(400).json({ error: 'Error al crear nuevo movimiento' });
+            console.log(error);
         }
-        console.log(nuevo_Movimiento)
+        
     },
     putModificarMovimiento: async (req, res) => {
         try {
             const { id } = req.params;
             const { tipo, numeroFactura, fecha, articulos, valor, iva, total } = req.body;
-            let update =  { tipo, numeroFactura, fecha, articulos, valor, iva, total }
+            let update =  { tipo, numeroFactura, fecha, articulos,  valor, iva, total }
             const movimientoModificado = await Movimiento.findByIdAndUpdate(id, update, { new: true });
             res.json(movimientoModificado);
         } catch (error) {
